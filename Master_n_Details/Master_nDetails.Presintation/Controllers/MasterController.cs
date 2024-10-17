@@ -1,5 +1,6 @@
 ﻿
 
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
@@ -33,10 +34,17 @@ namespace Master_n_Details.Presintation.Controllers
 
         [HttpPost(Name = "CreateMaster")]
 
-        public async Task<IActionResult> CreateMaster([FromBody] MasterForCreatingDto company)
+        public async Task<IActionResult> CreateMaster([FromBody] MasterForCreatingDto master)
         {
-            var createdMaster = await _service.MasterService.CreateMasterAsync(company);
-            return CreatedAtRoute("MasterById", new { id = createdMaster.Id }, createdMaster);
+            try
+            {
+                var createdMaster = await _service.MasterService.CreateMasterAsync(master);
+                return CreatedAtRoute("MasterById", new { id = createdMaster.Id }, createdMaster);
+            }
+            catch (BusinessException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpDelete("{id:guid}")]
@@ -47,10 +55,18 @@ namespace Master_n_Details.Presintation.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateMaster(Guid id, [FromBody] MasterForUpdateDto company)
+        public async Task<IActionResult> UpdateMaster(Guid id, [FromBody] MasterForUpdateDto master)
         {
-            await _service.MasterService.UpdateMasterAsync(id, company, trackChanges: true);
-            return NoContent();
+
+            try
+            {
+                await _service.MasterService.UpdateMasterAsync(id, master, trackChanges: true);
+                return NoContent();
+            }
+            catch (BusinessException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
     }

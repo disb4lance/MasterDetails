@@ -5,7 +5,7 @@ namespace Shared.DataTransferObjects
     {
         public string? number { get; set; }
         public string? note { get; set; }
-        public double? SumPrice { get; set; }
-        public IEnumerable<DetailForCreatingDto>? Details { get; set; }
+        // public double? SumPrice { get; set; }
+        //public IEnumerable<DetailForCreatingDto>? Details { get; set; }
     }
 }

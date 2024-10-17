@@ -34,14 +34,14 @@ namespace Master_n_Details.Presintation.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateDetailForMaster(Guid masterId, [FromBody] DetailForCreatingDto detail)
         {
-            var detailToReturn = await _service.DetailService.CreateDetailForMasterAsync(masterId, detail, trackChanges: false);
+            var detailToReturn = await _service.DetailService.CreateDetailForMasterAsync(masterId, detail, trackChanges: true);
             return CreatedAtRoute("GetDetailForMaster", new { masterId, id = detailToReturn.Id }, detailToReturn);
         }
 
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteDetailForMaster(Guid masterId, Guid id)
         {
-            await _service.DetailService.DeleteDetailForMasterAsync(masterId, id, trackChanges: false);
+            await _service.DetailService.DeleteDetailForMasterAsync(masterId, id, trackChanges: true);
             return NoContent();
         }
 
@@ -49,7 +49,7 @@ namespace Master_n_Details.Presintation.Controllers
         public async Task<IActionResult> UpdateDeteilForMastery(Guid masterId, Guid id, [FromBody] DetailForUpdateDto detail)
         {
             await _service.DetailService.UpdateDetailForMasterAsync(masterId, id, detail,
-                 masterTrackChanges: false, detailTrackChanges: true);
+                 masterTrackChanges: true, detailTrackChanges: true);
 
             return NoContent();
         }

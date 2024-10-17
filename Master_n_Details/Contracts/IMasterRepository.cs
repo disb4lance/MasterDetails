@@ -10,9 +10,10 @@ namespace Contracts
 {
     public interface IMasterRepository
     {
+        Task<bool> IsDocumentNumberUniqueAsync(string documentNumber, bool trackchange);
         Task<IEnumerable<Master>> GetAllMastersAsync(bool trackChanges);
         Task<Master> GetMasterAsync(Guid masterId, bool trackChanges);
-        void CreateCompany(Master master);
-        void DeleteCompany(Master master);
+        void CreateMaster(Master master);
+        void DeleteMaster(Master master);
     }
 }

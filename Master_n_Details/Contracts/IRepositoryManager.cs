@@ -10,6 +10,10 @@ namespace Contracts
     {
         IMasterRepository Master { get; }
         IDetailRepository Detail { get; }
+        ILogRepository Log { get; }
         Task SaveAsync();
+        Task BeginTransactionAsync();
+        Task CommitTransactionAsync();
+        Task RollbackTransactionAsync();
     }
 }

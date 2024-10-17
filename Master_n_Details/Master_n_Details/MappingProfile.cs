@@ -11,6 +11,8 @@ namespace Master_n_Details
         {
             CreateMap<Master, MasterDto>();
 
+            CreateMap<MasterDto, Master>();
+
             CreateMap<Detail, DetailDto>();
 
             CreateMap<MasterForCreatingDto, Master>();
