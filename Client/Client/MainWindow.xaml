@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="539" Width="800">
 
+    <Window.Resources>
+        <!-- Стиль для кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Основная панель с кнопками -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+            <Button Content="Добавить документ" Click="AddDocument_Click"/>
+            <Button Content="Показать документ по номеру" Click="ShowDocument_Click"/>
+            <Button Content="Обновить документ по номеру" Click="UpdateDocument_Click"/>
+            <Button Content="Удалить документ по номеру" Click="DeleteDocument_Click"/>
+            <Button Content="Показать спецификации по номеру документа" Click="ShowSpecifications_Click"/>
+            <Button Content="Добавить спецификацию к документу" Click="AddSpecification_Click"/>
+            <Button Content="Обновить спецификацию по номеру документа и ID спецификации" Click="UpdateSpecification_Click"/>
+            <Button Content="Удалить спецификацию по номеру документа и ID спецификации" Click="DeleteSpecification_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

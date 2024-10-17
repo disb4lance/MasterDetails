@@ -59,6 +59,7 @@ namespace Service
                 var masterEntity = _mapper.Map<Master>(master);
                 _repository.Master.CreateMaster(masterEntity);
                 await _repository.SaveAsync();
+                await _repository.CommitTransactionAsync();
                 var masterToReturn = _mapper.Map<MasterDto>(masterEntity);
                 return masterToReturn;
             }

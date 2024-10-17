@@ -26,7 +26,7 @@ namespace Master_n_Details.Presintation.Controllers
         }
 
         [HttpGet("MasterByNumber")]
-        public async Task<IActionResult> GetMaster(string number)
+        public async Task<IActionResult> MasterByNumber(string number)
         {
             var master = await _service.MasterService.GetMasterByName(number, trackChanges: false);
             return Ok(master);
@@ -39,7 +39,8 @@ namespace Master_n_Details.Presintation.Controllers
             try
             {
                 var createdMaster = await _service.MasterService.CreateMasterAsync(master);
-                return CreatedAtRoute("MasterById", new { id = createdMaster.Id }, createdMaster);
+               return CreatedAtRoute("MasterByNumber", new { number = createdMaster.Number }, createdMaster);
+
             }
             catch (BusinessException ex)
             {
