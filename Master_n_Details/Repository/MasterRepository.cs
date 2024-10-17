@@ -19,10 +19,16 @@ namespace Repository
             return !await FindByCondition(m => m.Number.Equals(documentNumber), trackchange).AnyAsync();
         }
 
+        public async Task<Master> GetMasterByNumberAsync(string number, bool trackChanges) =>
+            await FindByCondition(c => c.Number.Equals(number), trackChanges)
+            .SingleOrDefaultAsync();
+        
+
         public async Task<IEnumerable<Master>> GetAllMastersAsync(bool trackChanges) =>
         await FindAll(trackChanges)
         .OrderBy(c => c.Number)
             .ToListAsync();
+
 
         public async Task<Master> GetMasterAsync(Guid masterId, bool trackChanges) =>
            await FindByCondition(c => c.Id.Equals(masterId), trackChanges)

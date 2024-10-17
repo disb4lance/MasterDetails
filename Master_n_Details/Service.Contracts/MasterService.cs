@@ -20,6 +20,21 @@ namespace Service
             _logRepository = logRepository;
         }
 
+
+        public async Task<MasterDto> GetMasterByName(string number, bool trackChanges) { 
+            var master = await _repository.Master.GetMasterByNumberAsync(number, trackChanges);
+            var masterDto = _mapper.Map<MasterDto>(master);
+            return masterDto;
+        }
+
+        private async Task<Master> GetMasterByNumberAndCheckIfItExists(string number, bool trackChanges) {
+            var master = await _repository.Master.GetMasterByNumberAsync(number, trackChanges = false);
+            if (master is null)
+            {
+                throw new MasterByNumberNotFound($"документ с номером {number} не найден");
+            }
+            return master;
+        }
         public async Task<IEnumerable<MasterDto>> GetAllMastersAsync(bool trackChanges) {
             var masters = await _repository.Master.GetAllMastersAsync(trackChanges);
             var mastersDto = _mapper.Map<IEnumerable<MasterDto>>(masters);

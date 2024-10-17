@@ -25,10 +25,10 @@ namespace Master_n_Details.Presintation.Controllers
             return Ok(masters);
         }
 
-        [HttpGet("{id:guid}", Name = "MasterById")]
-        public async Task<IActionResult> GetMaster(Guid id)
+        [HttpGet("MasterByNumber")]
+        public async Task<IActionResult> GetMaster(string number)
         {
-            var master = await _service.MasterService.GetMasterAsync(id, trackChanges: false);
+            var master = await _service.MasterService.GetMasterByName(number, trackChanges: false);
             return Ok(master);
         }
 

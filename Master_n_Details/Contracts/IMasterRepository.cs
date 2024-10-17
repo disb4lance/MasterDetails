@@ -11,6 +11,8 @@ namespace Contracts
     public interface IMasterRepository
     {
         Task<bool> IsDocumentNumberUniqueAsync(string documentNumber, bool trackchange);
+
+        Task<Master> GetMasterByNumberAsync(string number, bool trackChanges);
         Task<IEnumerable<Master>> GetAllMastersAsync(bool trackChanges);
         Task<Master> GetMasterAsync(Guid masterId, bool trackChanges);
         void CreateMaster(Master master);
