@@ -1,5 +1,12 @@
 ﻿
+using Client.WindowsForAddDocuments;
+using Client.WindowsForDeleteDocument;
+using Client.WindowsForDeleteSpecification;
 using Client.WindowsForShowDocument;
+using Client.WindowsForShowSpecifications;
+using Client.WindowsForUpdateDocument;
+using Client.WindowsForUpdateSpecification;
+using System.Net.Http;
 using System.Windows;
 
 
@@ -16,7 +23,8 @@ namespace Client
         }
         private void AddDocument_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для добавления документа
+            var addDocumentWindow = new AddDocumentWindow();
+            addDocumentWindow.ShowDialog();
         }
 
         private void ShowDocument_Click(object sender, RoutedEventArgs e)
@@ -28,32 +36,38 @@ namespace Client
 
         private void UpdateDocument_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для обновления документа по номеру
+            var updateWindow = new UpdateDocumentWindow();
+            updateWindow.ShowDialog();
         }
 
         private void DeleteDocument_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для удаления документа по номеру
+            var deleteDocumentWindow = new DeleteDocumentWindow(new HttpClient());
+            deleteDocumentWindow.ShowDialog();
         }
 
         private void ShowSpecifications_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для показа спецификаций по номеру документа
+            var showSpecificationsWindow = new ShowSpecificationsWindow(new HttpClient());
+            showSpecificationsWindow.ShowDialog();
         }
 
         private void AddSpecification_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для добавления спецификации к документу
+            var showSpecificationsWindow = new ShowSpecificationsWindow(new HttpClient());
+            showSpecificationsWindow.ShowDialog();
         }
 
         private void UpdateSpecification_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для обновления спецификации по номеру документа и ID спецификации
+            var updateWindow = new UpdateSpecificationWindow();
+            updateWindow.ShowDialog();
         }
 
         private void DeleteSpecification_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для удаления спецификации по номеру документа и ID спецификации
+            var deleteWindow = new DeleteSpecificationWindow();
+            deleteWindow.ShowDialog();
         }
     }
 }

@@ -91,6 +91,7 @@ namespace Service
                 var masterEntity = await GetMasterAndCheckIfItExists(masterId, trackChanges);
                 _mapper.Map(masterForUpdate, masterEntity);
                 await _repository.SaveAsync();
+                await _repository.CommitTransactionAsync();
             }
             catch (Exception ex)
             {

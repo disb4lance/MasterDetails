@@ -35,7 +35,8 @@ namespace Master_n_Details.Presintation.Controllers
         public async Task<IActionResult> CreateDetailForMaster(Guid masterId, [FromBody] DetailForCreatingDto detail)
         {
             var detailToReturn = await _service.DetailService.CreateDetailForMasterAsync(masterId, detail, trackChanges: true);
-            return CreatedAtRoute("GetDetailForMaster", new { masterId, id = detailToReturn.Id }, detailToReturn);
+            //return CreatedAtRoute("GetDetailForMaster", new { masterId, id = detailToReturn.Id }, detailToReturn);
+            return Ok(detailToReturn);
         }
 
         [HttpDelete("{id:guid}")]

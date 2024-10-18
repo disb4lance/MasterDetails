@@ -39,7 +39,8 @@ namespace Master_n_Details.Presintation.Controllers
             try
             {
                 var createdMaster = await _service.MasterService.CreateMasterAsync(master);
-               return CreatedAtRoute("MasterByNumber", new { number = createdMaster.Number }, createdMaster);
+                //return CreatedAtRoute("MasterByNumber", new { number = createdMaster.Number }, createdMaster);
+                return Ok(createdMaster);
 
             }
             catch (BusinessException ex)
@@ -68,7 +69,7 @@ namespace Master_n_Details.Presintation.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-        }
+        }   
 
     }
 }

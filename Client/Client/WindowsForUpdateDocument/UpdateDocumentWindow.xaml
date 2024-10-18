@@ -1,0 +1,19 @@
+﻿<Window x:Class="Client.WindowsForUpdateDocument.UpdateDocumentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Update Document" Height="250" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Введите ID документа" Margin="0,0,0,5"/>
+            <TextBox Name="DocumentIdTextBox" VerticalAlignment="Top" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Введите новый номер документа" Margin="0,0,0,5"/>
+            <TextBox Name="DocumentNumberTextBox" VerticalAlignment="Top" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Введите новое примечание" Margin="0,0,0,5"/>
+            <TextBox Name="DocumentNoteTextBox" VerticalAlignment="Top" Margin="0,0,0,10"/>
+
+            <Button Content="Обновить" HorizontalAlignment="Right" Width="100" Click="UpdateButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

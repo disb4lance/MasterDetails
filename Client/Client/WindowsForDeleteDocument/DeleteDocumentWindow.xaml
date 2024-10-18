@@ -1,0 +1,13 @@
+﻿<Window x:Class="Client.WindowsForDeleteDocument.DeleteDocumentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Delete Document" Height="200" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Введите ID документа для удаления" Margin="0,0,0,5"/>
+            <TextBox Name="DocumentIdTextBox" VerticalAlignment="Top" Margin="0,0,0,10"/>
+
+            <Button Content="Удалить" HorizontalAlignment="Right" Width="100" Click="DeleteButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
