@@ -1,5 +1,6 @@
 ﻿
 using Client.WindowsForAddDocuments;
+using Client.WindowsForAddSpecification;
 using Client.WindowsForDeleteDocument;
 using Client.WindowsForDeleteSpecification;
 using Client.WindowsForShowDocument;
@@ -54,7 +55,7 @@ namespace Client
 
         private void AddSpecification_Click(object sender, RoutedEventArgs e)
         {
-            var showSpecificationsWindow = new ShowSpecificationsWindow(new HttpClient());
+            var showSpecificationsWindow = new AddSpecificationWindow(new HttpClient());
             showSpecificationsWindow.ShowDialog();
         }
 

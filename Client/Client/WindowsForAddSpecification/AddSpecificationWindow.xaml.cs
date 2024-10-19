@@ -35,13 +35,14 @@ namespace Client.WindowsForAddSpecification
             var specificationDto = new
             {
                 Name = specificationName,
-                Cost = decimal.TryParse(specificationCost, out var cost) ? cost : 0
+                price = specificationCost
             };
 
             var jsonContent = JsonSerializer.Serialize(specificationDto);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("https://localhost:5262/api/{documentId}", httpContent);
+            var response = await _httpClient.PostAsync($"http://localhost:5262/api/masters/{documentId}/details", httpContent);
+
 
             if (response.IsSuccessStatusCode)
             {

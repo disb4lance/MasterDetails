@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Text.Json;
+using Client.Models.TrancferObjects;
 
 namespace Client.WindowsForShowSpecifications
 {
@@ -36,12 +37,12 @@ namespace Client.WindowsForShowSpecifications
                 return;
             }
 
-            var response = await _httpClient.GetAsync($"https://localhost:5262/api/Master/{documentId}/details");
+            var response = await _httpClient.GetAsync($"http://localhost:5262/api/Masters/{documentId}/details");
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var specifications = JsonSerializer.Deserialize<List<string>>(content);
+                var specifications = JsonSerializer.Deserialize<List<SpecificationDto>>(content);
                 SpecificationsListBox.ItemsSource = specifications;
             }
             else

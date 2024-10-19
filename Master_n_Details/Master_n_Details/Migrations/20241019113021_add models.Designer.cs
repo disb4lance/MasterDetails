@@ -12,8 +12,8 @@ using Repository;
 namespace Master_n_Details.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20241015130217_add Models")]
-    partial class addModels
+    [Migration("20241019113021_add models")]
+    partial class addmodels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

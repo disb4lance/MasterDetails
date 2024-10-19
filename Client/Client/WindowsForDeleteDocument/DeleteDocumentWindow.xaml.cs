@@ -38,7 +38,7 @@ namespace Client.WindowsForDeleteDocument
                 return;
             }
 
-            var response = await _httpClient.DeleteAsync($"https://localhost:5262/api/Master/{documentId}");
+            var response = await _httpClient.DeleteAsync($"http://localhost:5262/api/Master/{documentId}");
 
             if (response.IsSuccessStatusCode)
             {
