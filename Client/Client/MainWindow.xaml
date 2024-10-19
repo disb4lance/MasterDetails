@@ -28,12 +28,12 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
             <Button Content="Добавить документ" Click="AddDocument_Click"/>
             <Button Content="Показать документ по номеру" Click="ShowDocument_Click"/>
-            <Button Content="Обновить документ по номеру" Click="UpdateDocument_Click"/>
-            <Button Content="Удалить документ по номеру" Click="DeleteDocument_Click"/>
-            <Button Content="Показать спецификации по номеру документа" Click="ShowSpecifications_Click"/>
+            <Button Content="Обновить документ" Click="UpdateDocument_Click"/>
+            <Button Content="Удалить документ " Click="DeleteDocument_Click"/>
+            <Button Content="Показать спецификации " Click="ShowSpecifications_Click"/>
             <Button Content="Добавить спецификацию к документу" Click="AddSpecification_Click"/>
-            <Button Content="Обновить спецификацию по номеру документа и ID спецификации" Click="UpdateSpecification_Click"/>
-            <Button Content="Удалить спецификацию по номеру документа и ID спецификации" Click="DeleteSpecification_Click"/>
+            <Button Content="Обновить спецификацию " Click="UpdateSpecification_Click"/>
+            <Button Content="Удалить спецификацию " Click="DeleteSpecification_Click"/>
         </StackPanel>
     </Grid>
 </Window>
