@@ -39,7 +39,7 @@ namespace Client.WindowsForDeleteSpecification
             // Отправка HTTP DELETE запроса
             using (var httpClient = new HttpClient())
             {
-                var response = await httpClient.DeleteAsync($"https://localhost:7147/api/master/{documentId}/{specificationId}");
+                var response = await httpClient.DeleteAsync($"http://localhost:5262/api/masters/{documentId}/details/{specificationId}");
 
                 if (response.IsSuccessStatusCode)
                 {

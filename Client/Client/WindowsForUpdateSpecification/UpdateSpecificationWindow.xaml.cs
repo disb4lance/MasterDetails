@@ -48,7 +48,7 @@ namespace Client.WindowsForUpdateSpecification
 
             using (var httpClient = new HttpClient())
             {
-                var response = await httpClient.PutAsync($"https://localhost:7147/api/masters/{documentId}/details/{specificationId}", jsonContent);
+                var response = await httpClient.PutAsync($"http://localhost:5262/api/masters/{documentId}/details/{specificationId}", jsonContent);
 
                 if (response.IsSuccessStatusCode)
                 {
